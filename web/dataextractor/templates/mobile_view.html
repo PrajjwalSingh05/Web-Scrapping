@@ -1,0 +1,58 @@
+{% include 'user_navigation.html' %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="table-responsive">
+    <center>
+
+        <h1>All User</h1>
+    </center>
+    <table class="table table-striped table-hover	table-borderless table-primaryalign-middle">
+        <thead class="table-dark">
+            <caption>Table Name</caption>
+            <tr>
+
+
+                <th>S.no</th>
+                <th> Brand</th>
+                <!-- <th>Location</th> -->
+                <th>Price</th>
+                <th>Memory</th>
+
+                <th>Display</th>
+                <th>Camera</th>
+                <th>battery</th>
+                <th>rom</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody class=>
+            {% for i in data %}
+            <tr class="rows">
+                <td>{{forloop.counter}}</td>
+                <td>{{i.brand}} </td>
+                <td>{{i.price}} </td>
+                <!-- <td scope="row">{{i.location}}</td> -->
+                <td>{{i.memory}}</td>
+                <td>{{i.display}}</td>
+                <td>{{i.camera}}</td>
+                <td>{{i.battery}}</td>
+                <td>{{i.rom}}</td>
+
+
+                {% endfor %}
+            </tr>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</div>
+</div>
+
+
+</body>
+</html>

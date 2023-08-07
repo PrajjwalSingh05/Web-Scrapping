@@ -1,0 +1,56 @@
+{% include 'user_navigation.html' %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="table-responsive">
+    <center>
+
+        <h1>All User</h1>
+    </center>
+    <table class="table table-striped table-hover	table-borderless table-primaryalign-middle">
+        <thead class="table-dark">
+            <caption>Table Name</caption>
+            <tr>
+
+
+                <th>S.no</th>
+                <th> Name</th>
+                <!-- <th>Location</th> -->
+                <th>Price</th>
+                <th>Displacement</th>
+
+                <th>Max Power</th>
+                <th>Milage</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody class=>
+            {% for i in data %}
+            <tr class="rows">
+                <td>{{forloop.counter}}</td>
+                <td>{{i.name}} </td>
+                <td>{{i.price}} </td>
+                <!-- <td scope="row">{{i.location}}</td> -->
+                <td>{{i.displacement}}</td>
+                <td>{{i.max_power}}</td>
+                <td>{{i.mileage}}</td>
+                <td>{{i.battery}}</td>
+                <td>{{i.rom}}</td>
+
+
+                {% endfor %}
+            </tr>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</div>
+</div>
+
+
+</body>
+</html>

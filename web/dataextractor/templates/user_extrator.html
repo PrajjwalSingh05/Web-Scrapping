@@ -1,0 +1,286 @@
+{% include 'user_navigation.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a{
+<!--        margin:2px;-->
+        }
+        .card {
+        width: 40rem;
+    height: 28rem;
+    display: inline-block; /* or use "flex" if you prefer flexbox layout */
+    margin-right: 10px; /* Optional: Add some margin between the cards */
+  }
+
+    </style>
+
+
+</head>
+
+<body>
+
+
+<div class="outerbox">
+<div class="card" >
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Mobile Phone</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <td scope="row"><input type="number" name="pagenumber" id="fmobile" step="10"></td>
+    <a href="{% url 'mobile_view' %}"  id="fmobilelink" class="btn btn-primary">Fetch Dataset</a>
+    <a href="{% url 'retrive_specific_mobilephone_flipkart' %}" class="btn btn-primary" id="fmobiledownload">Download Dataset</a>
+    <a href="{% url 'delete_mobilephone_flipkart' %}" class="btn btn-primary">Delete all dataset</a>
+  </div>
+</div>
+    <div class="card" style="">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Labptop</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <td scope="row"><input type="number" name="pagenumber" id="flaptop"></td>
+
+      <a href="{% url 'laptop_view' %}" class="btn btn-primary" id="flaptoplink">Fetch Dataset</a>
+    <a href="{% url 'retrive_specific_laptop_flipkart' %}" class="btn btn-primary" id="flaptopdownload">View/ Download Dataset</a>
+    <a href="{% url 'delete_laptop_flipkart' %}" class="btn btn-primary">Delete all dataset</a>
+  </div>
+</div>
+
+    </div>
+
+
+<div class="outerbox">
+<div class="card" style="">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Television</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+       <td scope="row"><input type="number" name="pagenumber" id="ftelivision"></td>
+    <a href="{% url 'telivion_view' %}" class="btn btn-primary" id="ftelivisionlink">Fetch Dataset</a>
+    <a href="{% url 'retrive_specific_telivision_flipkart' %}" id="ftelivisiondownload" class="btn btn-primary">View/ Download Dataset</a>
+    <a href="{% url 'delete_television_flipkart' %}" class="btn btn-primary">Delete all dataset</a>
+  </div>
+</div>
+    <div class="card" style="">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Earphpone</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+       <td scope="row"><input type="number" name="pagenumber" id="fearphone" ></td>
+    <a href="{% url 'earphone_view' %}" class="btn btn-primary" id="fearphonelink">Fetch Dataset</a>
+    <a href="{% url 'retrive_specific_earphone_flipkart' %}"id="fearphonedownload" class="btn btn-primary">View/ Download Dataset</a>
+    <a href="{% url 'delete_earphone_flipkart' %}" class="btn btn-primary">Delete all dataset</a>
+  </div>
+</div>
+    </div>
+
+
+<div class="outerbox">
+<div class="card" style="">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Bike</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <td scope="row"><input type="number" name="pagenumber" id="fbike"></td>
+    <a href="{% url 'bike_view' %}" class="btn btn-primary" id="fbikelink">Fetch Dataset</a>
+    <a href="{% url 'retrive_bike_flipkart' %}" id="fbikedownload" class="btn btn-primary">View/ Download Dataset</a>
+    <a href="{% url 'delete_bike_flipkart' %}" class="btn btn-primary">Delete all dataset</a>
+  </div>
+</div>
+    <div class="card" style="">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Washing MAchone</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <td scope="row"><input type="number" name="pagenumber" id="fwashingmachine"></td>
+    <a href="{% url 'washingmachine_view' %}" class="btn btn-primary" id="fwashingmachinelink">Fetch Dataset</a>
+    <a href="{% url 'reterive_specific_washingmachine_flipkart' %}"id="fwashingmachinedownload" class="btn btn-primary">View/ Download Dataset</a>
+    <a href="{% url 'delete_washing_machine_flipkart' %}" class="btn btn-primary">Delete all dataset</a>
+  </div>
+</div>
+    </div>
+
+
+
+ <script>
+        // on page ready
+        // FOr Mobile
+      document.addEventListener("DOMContentLoaded", function(event) {
+            let totalPageBox = document.querySelector('#fmobile');
+            let totalRow = 10;
+            let url = `{% url 'mobile_view' %}?page=${totalRow}`;
+            totalPageBox.addEventListener('change', (e) => {
+                totalRow = e.target.value;
+                console.log(totalRow)
+                url = `{% url 'mobile_view' %}?page=${totalRow}`;
+                document.querySelector('#fmobilelink').setAttribute('href', url);
+            });
+            document.querySelector('#fmobilelink').setAttribute('href', url);
+            console.log(url)
+
+        });
+        document.addEventListener("DOMContentLoaded", function(event) {
+            let totalPageBox = document.querySelector('#fmobile');
+            let totalRow = 10;
+            let url = `{% url 'retrive_specific_mobilephone_flipkart' %}?page=${totalRow}`;
+            totalPageBox.addEventListener('change', (e) => {
+                totalRow = e.target.value;
+                console.log(totalRow)
+                url = `{% url 'retrive_specific_mobilephone_flipkart' %}?page=${totalRow}`;
+                document.querySelector('#fmobiledownload').setAttribute('href', url);
+            });
+            document.querySelector('#fmobiledownload').setAttribute('href', url);
+            console.log(url)
+
+        });
+
+  // For Laptop
+
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+            let totalPageBox = document.querySelector('#flaptop');
+            let totalRow = 10;
+            let url = `{% url 'laptop_view' %}?page=${totalRow}`;
+            totalPageBox.addEventListener('change', (e) => {
+                totalRow = e.target.value;
+                console.log(totalRow)
+                url = `{% url 'laptop_view' %}?page=${totalRow}`;
+                document.querySelector('#flaptoplink').setAttribute('href', url);
+            });
+            document.querySelector('#flaptoplink').setAttribute('href', url);
+            console.log(url)
+
+        });
+        document.addEventListener("DOMContentLoaded", function(event) {
+            let totalPageBox = document.querySelector('#flaptop');
+            let totalRow = 10;
+            let url = `{% url 'retrive_specific_laptop_flipkart' %}?page=${totalRow}`;
+            totalPageBox.addEventListener('change', (e) => {
+                totalRow = e.target.value;
+                console.log(totalRow)
+                url = `{% url 'retrive_specific_laptop_flipkart' %}?page=${totalRow}`;
+                document.querySelector('#flaptopdownload').setAttribute('href', url);
+            });
+            document.querySelector('#flaptopdownload').setAttribute('href', url);
+            console.log(url)
+
+        });
+// for Telivison
+        document.addEventListener("DOMContentLoaded", function(event) {
+            let totalPageBox = document.querySelector('#ftelivision');
+            let totalRow = 10;
+            let url = `{% url 'telivion_view' %}?page=${totalRow}`;
+            totalPageBox.addEventListener('change', (e) => {
+                totalRow = e.target.value;
+                console.log(totalRow)
+                url = `{% url 'telivion_view' %}?page=${totalRow}`;
+                document.querySelector('#ftelivisionlink').setAttribute('href', url);
+            });
+            document.querySelector('#ftelivisionlink').setAttribute('href', url);
+            console.log(url)
+
+        });
+
+            document.addEventListener("DOMContentLoaded", function(event) {
+            let totalPageBox = document.querySelector('#ftelivision');
+            let totalRow = 10;
+            let url = `{% url 'retrive_specific_telivision_flipkart' %}?page=${totalRow}`;
+            totalPageBox.addEventListener('change', (e) => {
+                totalRow = e.target.value;
+                console.log(totalRow)
+                url = `{% url 'retrive_specific_telivision_flipkart' %}?page=${totalRow}`;
+                document.querySelector('#ftelivisiondownload').setAttribute('href', url);
+            });
+            document.querySelector('#ftelivisionlink').setAttribute('href', url);
+            console.log(url)
+
+        });
+        // *************************************************************Earphone*****************************************
+        document.addEventListener("DOMContentLoaded", function(event) {
+            let totalPageBox = document.querySelector('#fearphone');
+            let totalRow = 10;
+            let url = `{% url 'earphone_view' %}?page=${totalRow}`;
+            totalPageBox.addEventListener('change', (e) => {
+                totalRow = e.target.value;
+                console.log(totalRow)
+                url = `{% url 'earphone_view' %}?page=${totalRow}`;
+                document.querySelector('#fearphonelink').setAttribute('href', url);
+            });
+            document.querySelector('#fearphonelink').setAttribute('href', url);
+            console.log(url)
+
+        });
+        document.addEventListener("DOMContentLoaded", function(event) {
+            let totalPageBox = document.querySelector('#fearphone');
+            let totalRow = 10;
+            let url = `{% url 'retrive_specific_earphone_flipkart' %}?page=${totalRow}`;
+            totalPageBox.addEventListener('change', (e) => {
+                totalRow = e.target.value;
+                console.log(totalRow)
+                url = `{% url 'retrive_specific_earphone_flipkart' %}?page=${totalRow}`;
+                document.querySelector('#fearphonedownload').setAttribute('href', url);
+            });
+            document.querySelector('#fearphonedownload').setAttribute('href', url);
+            console.log(url)
+
+        });
+        // *************************************************************Bike*****************************************
+        document.addEventListener("DOMContentLoaded", function(event) {
+            let totalPageBox = document.querySelector('#fbike');
+            let totalRow = 10;
+            let url = `{% url 'bike_view' %}?page=${totalRow}`;
+            totalPageBox.addEventListener('change', (e) => {
+                totalRow = e.target.value;
+                console.log(totalRow)
+                url = `{% url 'bike_view' %}?page=${totalRow}`;
+                document.querySelector('#fbikelink').setAttribute('href', url);
+            });
+            document.querySelector('#fbikelink').setAttribute('href', url);
+            console.log(url)
+
+        });   document.addEventListener("DOMContentLoaded", function(event) {
+            let totalPageBox = document.querySelector('#fbike');
+            let totalRow = 10;
+            let url = `{% url 'retrive_specific_bike_flipkart' %}?page=${totalRow}`;
+            totalPageBox.addEventListener('change', (e) => {
+                totalRow = e.target.value;
+                console.log(totalRow)
+                url = `{% url 'retrive_specific_bike_flipkart' %}?page=${totalRow}`;
+                document.querySelector('#fbikedownload').setAttribute('href', url);
+            });
+            document.querySelector('#fbikedownload').setAttribute('href', url);
+            console.log(url)
+
+        });
+        // *************************************************************Washing Machine*****************************************
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+            let totalPageBox = document.querySelector('#fwashingmachine');
+            let totalRow = 10;
+            let url = `{% url 'washingmachine_view' %}?page=${totalRow}`;
+            totalPageBox.addEventListener('change', (e) => {
+                totalRow = e.target.value;
+                console.log(totalRow)
+                url = `{% url 'washingmachine_view' %}?page=${totalRow}`;
+                document.querySelector('#fwashingmachinelink').setAttribute('href', url);
+            });
+            document.querySelector('#fwashingmachinelink').setAttribute('href', url);
+            console.log(url)
+
+        });   document.addEventListener("DOMContentLoaded", function(event) {
+            let totalPageBox = document.querySelector('#fwashingmachine');
+            let totalRow = 10;
+            let url = `{% url 'reterive_specific_washingmachine_flipkart' %}?page=${totalRow}`;
+            totalPageBox.addEventListener('change', (e) => {
+                totalRow = e.target.value;
+                console.log(totalRow)
+                url = `{% url 'reterive_specific_washingmachine_flipkart' %}?page=${totalRow}`;
+                document.querySelector('#fwashingmachinedownload').setAttribute('href', url);
+            });
+            document.querySelector('#fwashingmachinedownload').setAttribute('href', url);
+            console.log(url)
+
+        });
+    </script>
+</body>
+</html>
